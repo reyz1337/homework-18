@@ -70,17 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function shoppingListAdditem(array){
         let addItem = prompt('Введіть товар який хочете додати');
         let addValue = +prompt('Введіть кількість товару');
-        let addPrice;
-        let addSum;
         for(let i = 0; i < array.length; i++){
-            if(array[i].name == addItem){
+            if(array[i].name.toLowerCase() === addItem.toLowerCase()){
                 array[i].value += addValue;
                 array[i].sum = (array[i].price * array[i].value);
                 return array;
             }
-            else if(array[i].name != addItem){
-                addPrice = +prompt('Введіть ціну за товар (1шт)');
-                addSum = addPrice * addValue;
+        }
+         if(array[i].name != addItem){
+                let addPrice = +prompt('Введіть ціну за товар (1шт)');
+                let addSum = addPrice * addValue;
                 array.push(
                     newItem = {
                         name: addItem,
@@ -93,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return array;
             }
             else return 'error';
-        }
     }
     console.log(shoppingListAdditem(shoppingList));
     console.log(' ');
