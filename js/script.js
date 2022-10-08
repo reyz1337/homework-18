@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let addItem = prompt('Введіть товар який хочете додати');
         let addValue = +prompt('Введіть кількість товару');
         for(let i = 0; i < array.length; i++){
-            if(array[i].name.toLowerCase() === addItem.toLowerCase()){
+            if(array[i].name === addItem){
                 array[i].value += addValue;
                 array[i].sum = (array[i].price * array[i].value);
                 return array;
